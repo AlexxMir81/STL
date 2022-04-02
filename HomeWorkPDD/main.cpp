@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<map>
 #include<string>
 #include<fstream>
@@ -19,18 +19,18 @@ void main()
 	n = 10;
 	while (n)
 	{	
-		cout << tab << "Áàçà äàííûõ ÃÀÈ." << endl << "1 - Äîáàâèòü ïðàâîíàðóøåíèå" << endl << "2 - Ðàñïå÷àòàòü ïîëíûé ñïèñîê ïðàâîíàðóøåíèé" << endl
-			<< "3 - Ðàñïå÷àòàü ñïèñîê ïðàâîíàðóøåíèé ïî íîìåðó àâòî" << endl << "4 - ðàïñå÷àòàòü ñïèñîê ïðàâîíàðóøåíèé ïî äèàïàçîíó íîìåðîâ" << endl
-		<< "5 - Ñîõðàíèòü èçìåíåíèÿ" << endl << "0 - Âûõîä" << endl;
+		cout << tab << "Ð‘Ð°Ð·Ð° Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð“ÐÐ˜." << endl << "1 - Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð¿Ñ€Ð°Ð²Ð¾Ð½Ð°Ñ€ÑƒÑˆÐµÐ½Ð¸Ðµ" << endl << "2 - Ð Ð°ÑÐ¿ÐµÑ‡Ð°Ñ‚Ð°Ñ‚ÑŒ Ð¿Ð¾Ð»Ð½Ñ‹Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¿Ñ€Ð°Ð²Ð¾Ð½Ð°Ñ€ÑƒÑˆÐµÐ½Ð¸Ð¹" << endl
+			<< "3 - Ð Ð°ÑÐ¿ÐµÑ‡Ð°Ñ‚Ð°ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¿Ñ€Ð°Ð²Ð¾Ð½Ð°Ñ€ÑƒÑˆÐµÐ½Ð¸Ð¹ Ð¿Ð¾ Ð½Ð¾Ð¼ÐµÑ€Ñƒ Ð°Ð²Ñ‚Ð¾" << endl << "4 - Ñ€Ð°Ð¿ÑÐµÑ‡Ð°Ñ‚Ð°Ñ‚ÑŒ ÑÐ¿Ð¸ÑÐ¾Ðº Ð¿Ñ€Ð°Ð²Ð¾Ð½Ð°Ñ€ÑƒÑˆÐµÐ½Ð¸Ð¹ Ð¿Ð¾ Ð´Ð¸Ð°Ð¿Ð°Ð·Ð¾Ð½Ñƒ Ð½Ð¾Ð¼ÐµÑ€Ð¾Ð²" << endl
+		<< "5 - Ð¡Ð¾Ñ…Ñ€Ð°Ð½Ð¸Ñ‚ÑŒ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ" << endl << "0 - Ð’Ñ‹Ñ…Ð¾Ð´" << endl;
 		cin >> n;
 		switch (n)
 		{
 		case 1: add(adding); break;
 		case 2: print(adding, 0, 0); break;
-		case 3: cout << "Ââåäèòå íîìåð àâòî: "; cin >> first; print(adding, first, 0); break;
-		case 4: cout << "Ââåäèòå íîìåð ñ: "; cin >> first; cout << "Ââåäèòå íîìåð ïî: "; cin >> second; print(adding, first, second); break;
+		case 3: cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð°Ð²Ñ‚Ð¾: "; cin >> first; print(adding, first, 0); break;
+		case 4: cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ñ: "; cin >> first; cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð¿Ð¾: "; cin >> second; print(adding, first, second); break;
 		case 5: save(adding); break;
-		case 0: cout << "Ðàáîòà çàâåðøåíà!" << endl; break;
+		case 0: cout << "Ð Ð°Ð±Ð¾Ñ‚Ð° Ð·Ð°Ð²ÐµÑ€ÑˆÐµÐ½Ð°!" << endl; break;
 		default:;
 		}
 	}
@@ -40,10 +40,10 @@ void add(std::multimap<int, std::string>& adding)
 {
 	int nomer;
 	std::string	offense;
-	cout << "Ââåæèòå íîìåð ìàøèíû: "; cin >> nomer;
-	cout << "Ââåæèòå ïðàâîíàðóøåíèå: "; cin >> offense;
+	cout << "Ð’Ð²ÐµÐ¶Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð¼Ð°ÑˆÐ¸Ð½Ñ‹: "; cin >> nomer;
+	cout << "Ð’Ð²ÐµÐ¶Ð¸Ñ‚Ðµ Ð¿Ñ€Ð°Ð²Ð¾Ð½Ð°Ñ€ÑƒÑˆÐµÐ½Ð¸Ðµ: "; cin >> offense;
 	adding.insert(std::pair<int, std::string>(nomer, offense));
-	cout << "Ïðàâîíàðóøåíèå äîáàâëåíî!" << endl;
+	cout << "ÐŸÑ€Ð°Ð²Ð¾Ð½Ð°Ñ€ÑƒÑˆÐµÐ½Ð¸Ðµ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¾!" << endl;
 }
 
 void print(std::multimap<int, std::string>& adding, int first, int second)
@@ -85,8 +85,8 @@ void save(std::multimap<int, std::string>& adding)
 void load()
 {
 	ifstream file("c:\\test\\test.txt");
-	if (!file)cout << "Ôàéë íå îòêðûò!" << endl;
-	else cout << "Ôàëé îòêðûò!" << endl;
+	if (!file)cout << "Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚!" << endl;
+	else cout << "Ð¤Ð°Ð»Ð¹ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚!" << endl;
 	int n = 10;
 	char* buffer = new char[n] {};
 	std::string number;
