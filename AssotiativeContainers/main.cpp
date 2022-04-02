@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<string>
 #include<set>
 #include<map>
@@ -13,7 +13,7 @@ using std::endl;
 
 //#define STL_SET
 //#define STL_MAP
-//#define STL_LIST
+#define STL_LIST
 
 void main()
 {
@@ -27,7 +27,7 @@ void main()
 //}
 //cout << endl;
 	int n;
-	cout << "Ââåäèòå ðàçìåð êîíòåéíåðà: "; cin >> n;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ñ€Ð°Ð·Ð¼ÐµÑ€ ÐºÐ¾Ð½Ñ‚ÐµÐ¹Ð½ÐµÑ€Ð°: "; cin >> n;
 	std::multiset<int> set;
 	for (int i = 0; i < n; i++)
 	{
@@ -38,15 +38,15 @@ void main()
 		cout << i << tab;
 	}
 	cout << endl;
-	cout << "Ðàçìåð: " << set.size() << endl;
+	cout << "Ð Ð°Ð·Ð¼ÐµÑ€: " << set.size() << endl;
 
 	//int value;
-	//cout << "Ââåäèòå óäàëÿåìîå çíà÷åíèå: "; cin >> value;
+	//cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑƒÐ´Ð°Ð»ÑÐµÐ¼Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ: "; cin >> value;
 	//set.erase(value);
 	int start_value;
 	int stop_value;
-	cout << "Ñ êàêîãî çíà÷åíè óäàëèòü ýëåìåíòû: "; cin >> start_value;
-	cout << "Äî êàêîãî çíà÷åíèÿ óäàëèòü ýëåìåíòû: "; cin >> stop_value;
+	cout << "Ð¡ ÐºÐ°ÐºÐ¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹: "; cin >> start_value;
+	cout << "Ð”Ð¾ ÐºÐ°ÐºÐ¾Ð³Ð¾ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ñ ÑƒÐ´Ð°Ð»Ð¸Ñ‚ÑŒ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹: "; cin >> stop_value;
 	//set.erase(set.find(start_value), set.find(stop_value));
 	set.erase(set.lower_bound(start_value), set.upper_bound(stop_value));
 	for (int i : set) cout << i << tab; cout << endl;
@@ -78,8 +78,8 @@ void main()
 	cout << endl;
 	int index;
 	int value;
-	cout << "Ââåäèòå íîìåð äîáàâëÿåìîãî ýëåìåíòà: "; cin >> index;
-	cout << "Ââåäèòå äîáàâëÿåìîå ÷èñëî: "; cin >> value;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð¾Ð¼ÐµÑ€ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°: "; cin >> index;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼Ð¾Ðµ Ñ‡Ð¸ÑÐ»Ð¾: "; cin >> value;
 
 	if (index>=0&&index<list.size())
 	{
@@ -94,7 +94,7 @@ void main()
 		{
 			cout << i << tab;
 		}
-	}else cout<< "Âû âûøëè çà ðàçìåð ñïèñêà!";
+	}else cout<< "Ð’Ñ‹ Ð²Ñ‹ÑˆÐ»Ð¸ Ð·Ð° Ñ€Ð°Ð·Ð¼ÐµÑ€ ÑÐ¿Ð¸ÑÐºÐ°!";
 
 #endif // STL_LIST
 
