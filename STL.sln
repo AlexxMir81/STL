@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31321.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STL", "STL\STL.vcxproj", "{CA82CA81-942B-4F4C-8B65-C4A55D85B0E6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AssotiativeContainers", "AssotiativeContainers\AssotiativeContainers.vcxproj", "{2C9EEA1F-05FE-4293-90A5-E8EBEB65D7C1}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HomeWorkPDD", "HomeWorkPDD\HomeWorkPDD.vcxproj", "{292876E5-9CBA-4649-98ED-999A899E7D73}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "police", "police\police.vcxproj", "{A6696B63-3004-4509-B0F8-21F68DC36456}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,14 @@ Global
 		{292876E5-9CBA-4649-98ED-999A899E7D73}.Release|x64.Build.0 = Release|x64
 		{292876E5-9CBA-4649-98ED-999A899E7D73}.Release|x86.ActiveCfg = Release|Win32
 		{292876E5-9CBA-4649-98ED-999A899E7D73}.Release|x86.Build.0 = Release|Win32
+		{A6696B63-3004-4509-B0F8-21F68DC36456}.Debug|x64.ActiveCfg = Debug|x64
+		{A6696B63-3004-4509-B0F8-21F68DC36456}.Debug|x64.Build.0 = Debug|x64
+		{A6696B63-3004-4509-B0F8-21F68DC36456}.Debug|x86.ActiveCfg = Debug|Win32
+		{A6696B63-3004-4509-B0F8-21F68DC36456}.Debug|x86.Build.0 = Debug|Win32
+		{A6696B63-3004-4509-B0F8-21F68DC36456}.Release|x64.ActiveCfg = Release|x64
+		{A6696B63-3004-4509-B0F8-21F68DC36456}.Release|x64.Build.0 = Release|x64
+		{A6696B63-3004-4509-B0F8-21F68DC36456}.Release|x86.ActiveCfg = Release|Win32
+		{A6696B63-3004-4509-B0F8-21F68DC36456}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
