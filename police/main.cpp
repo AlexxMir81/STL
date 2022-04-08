@@ -1,4 +1,4 @@
-#include<iostream>
+п»ї#include<iostream>
 #include<string>
 #include<map>
 #include<fstream>
@@ -8,20 +8,20 @@ using namespace std;
 
 const std::map<int, std::string> CRIMES =
 {
-	std::pair<int,std::string>(1, "проезд на красный свет"),
-	std::pair<int, std::string>(2, "превышение скорости"),
-	std::pair<int, std::string>(3, "езда по встречной полосе"),
-	std::pair<int, std::string>(4, "дрифт на перекрестке"),
-	std::pair<int, std::string>(5, "парковка в неположенном месте"),
-	std::pair<int, std::string>(6, "оскорбление офицера"),
-	std::pair<int, std::string>(7, "вождение в нетрезвом состоянии"),
-	std::pair<int, std::string>(8, "вождение без документов"),
+	std::pair<int,std::string>(1, "РїСЂРѕРµР·Рґ РЅР° РєСЂР°СЃРЅС‹Р№ СЃРІРµС‚"),
+	std::pair<int, std::string>(2, "РїСЂРµРІС‹С€РµРЅРёРµ СЃРєРѕСЂРѕСЃС‚Рё"),
+	std::pair<int, std::string>(3, "РµР·РґР° РїРѕ РІСЃС‚СЂРµС‡РЅРѕР№ РїРѕР»РѕСЃРµ"),
+	std::pair<int, std::string>(4, "РґСЂРёС„С‚ РЅР° РїРµСЂРµРєСЂРµСЃС‚РєРµ"),
+	std::pair<int, std::string>(5, "РїР°СЂРєРѕРІРєР° РІ РЅРµРїРѕР»РѕР¶РµРЅРЅРѕРј РјРµСЃС‚Рµ"),
+	std::pair<int, std::string>(6, "РѕСЃРєРѕСЂР±Р»РµРЅРёРµ РѕС„РёС†РµСЂР°"),
+	std::pair<int, std::string>(7, "РІРѕР¶РґРµРЅРёРµ РІ РЅРµС‚СЂРµР·РІРѕРј СЃРѕСЃС‚РѕСЏРЅРёРё"),
+	std::pair<int, std::string>(8, "РІРѕР¶РґРµРЅРёРµ Р±РµР· РґРѕРєСѓРјРµРЅС‚РѕРІ"),
 };
 
 class Crime
 {
-	int id; //статья
-	std::string place; //место происшествоия
+	int id; //СЃС‚Р°С‚СЊСЏ
+	std::string place; //РјРµСЃС‚Рѕ РїСЂРѕРёСЃС€РµСЃС‚РІРѕРёСЏ
 	Crime(int id, std::string place) : id(id), place(place) {}
 	~Crime() {}
 
