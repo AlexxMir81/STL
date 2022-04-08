@@ -55,6 +55,10 @@ void load(std::map<std::string, std::list<Crime>>& base, const std::string filen
 std::string input_place();
 std::string input_plate();
 void menu(std::map<std::string, std::list<Crime>>& base, std::string filename);
+void search(const std::map<std::string, std::list<Crime>>& base, std::string target);
+void search2(const std::map<std::string, std::list<Crime>>& base, std::string target, std::string target2);
+void search3(const std::map<std::string, std::list<Crime>>& base, int id);
+void search4(const std::map<std::string, std::list<Crime>>& base, std::string place);
 //#define INPUT_BASE
 
 void main()
@@ -200,11 +204,11 @@ void menu(std::map<std::string, std::list<Crime>>& base, std::string filename)
 		switch (key)
 		{
 		case '1': print(base); break;
-		case '2': //cout << "empty\n"; break;
-		case '3': //cout << "empty\n"; break;
+		case '2': search(base, input_plate()); break;
+		case '3': search2(base, input_plate(), input_plate()); break;
 		case '4': //cout << "empty\n"; break;
-		case '5': //cout << "empty\n"; break;
-		case '6': cout << "empty\n"; 
+		case '5': search3(base, check_crime()); break;
+		case '6': search4(base, input_place());
 			system("PAUSE");
 			break;
 		case '7': save(base, filename); break;
@@ -214,4 +218,64 @@ void menu(std::map<std::string, std::list<Crime>>& base, std::string filename)
 
 	} while (key != 27);
 
+}
+
+void search(const std::map<std::string, std::list<Crime>>& base, std::string target)
+{
+	for (std::map<std::string, std::list<Crime>>::const_iterator it = base.begin(); it != base.end(); ++it)
+	{
+		if (it->first == target)
+		{
+			cout << it->first << "\n";
+			for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); ++jt)
+			{
+				cout << *jt << ";\n";
+			}
+		}
+	}
+	system("PAUSE");
+}
+void search2(const std::map<std::string, std::list<Crime>>& base, std::string target, std::string target2)
+{
+	std::map<std::string, std::list<Crime>>::const_iterator it, itlow, itup;
+	itlow = base.lower_bound(target2);
+	itup = base.upper_bound(target);
+	for (it = itlow; it != itup; ++it)
+	{
+		cout << it->first << "\n";
+		for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); ++jt)
+		{
+			cout << *jt << ";\n";
+		}
+	}
+	system("PAUSE");
+}
+void search3(const std::map<std::string, std::list<Crime>>& base, int id)
+{
+	for (std::map<std::string, std::list<Crime>>::const_iterator it = base.begin(); it != base.end(); ++it)
+	{
+		for(std::list<Crime>::const_iterator jt=it->second.begin();jt!=it->second.end();++jt)
+			if (jt->get_id() == id)
+			{
+				cout << it->first << "\n";
+				cout << *jt << ";\n";
+			}
+	}
+	system("PAUSE");
+}
+void search4(const std::map<std::string, std::list<Crime>>& base, std::string place)
+{
+	for (std::map<std::string, std::list<Crime>>::const_iterator it = base.begin(); it != base.end(); ++it)
+	{
+		for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); ++jt)
+		{
+			std::size_t found = jt->get_place().find(place, 0);
+			if(found!=std::string::npos)
+			{
+				cout << it->first << "\n";
+				cout << *jt << ";\n";
+			}
+		}
+	}
+	system("PAUSE");
 }
