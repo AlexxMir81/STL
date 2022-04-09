@@ -310,3 +310,8 @@ std::string currentDateTime(const std::time_t curtime)
 	year = std::to_string(1900 + ptm->tm_year);
 	return day + "." + mon + "." + year + " " + hours + ":" + min + ":" + sec;
 }
+
+void datetosec()
+{
+
+}
