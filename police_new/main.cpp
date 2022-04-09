@@ -1,10 +1,12 @@
-﻿#include<iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include<iostream>
 #include<string>
 #include<map>
 #include<fstream>
 #include<list>
 #include<windows.h>
 #include<conio.h>
+#include<time.h>
 
 using namespace std;
 #define tab "\t"
@@ -19,11 +21,12 @@ const std::map<int, std::string> CRIMES =
 	std::pair<int, std::string>(7, "вождение в нетрезвом состоянии"),
 	std::pair<int, std::string>(8, "вождение без документов"),
 };
-
+std::string currentDateTime(const std::time_t curtime);
 class Crime
 {
 	int id; //статья
 	std::string place; //место происшествоия
+	std::time_t date_time;
 public:
 	int get_id()const
 	{
@@ -33,18 +36,22 @@ public:
 	{
 		return place;
 	}
-	Crime(int id, std::string place) : id(id), place(place) {}
+	const std::time_t get_date_time()const
+	{
+		return date_time;
+	}
+	Crime(int id, std::string place, std::time_t date_time) : id(id), place(place), date_time(date_time) {}
 	~Crime() {}
 
 };
 
 std::ostream& operator<<(std::ostream& os, const Crime& obj)
 {
-	return os << CRIMES.at(obj.get_id()) << " - " << obj.get_place();
+	return os << CRIMES.at(obj.get_id()) << " - " << obj.get_place() << "|" << currentDateTime(obj.get_date_time());
 };
 std::ofstream& operator<<(std::ofstream& ofs, const Crime& obj)
 {
-	ofs << obj.get_id() << obj.get_place();
+	ofs << obj.get_id() << obj.get_place() << obj.get_date_time();
 	return ofs;
 }
 
@@ -59,6 +66,7 @@ void search(const std::map<std::string, std::list<Crime>>& base, std::string tar
 void search2(const std::map<std::string, std::list<Crime>>& base, std::string target, std::string target2);
 void search3(const std::map<std::string, std::list<Crime>>& base, int id);
 void search4(const std::map<std::string, std::list<Crime>>& base, std::string place);
+
 //#define INPUT_BASE
 
 void main()
@@ -141,7 +149,7 @@ void save(const map<std::string, std::list<Crime>>& base, std::string filename)
 		fout << it->first << ":";
 		for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); ++jt)
 		{
-			fout << *jt << ",";
+			fout << *jt << "|" << time(NULL) << ",";
 		}
 		fout.seekp(-1, std::ios::cur); //cur - current (текущий)
 		fout << ";\n";
@@ -161,6 +169,7 @@ void load(std::map<std::string, std::list<Crime>>& base, const std::string filen
 		{
 			std::string licence_plate;
 			std::string all_crimes; //этот буфер будет хранить все правонарушения заданного номера
+			int date_time;
 			std::getline(fin, licence_plate, ':');
 			std::getline(fin, all_crimes);
 			if (licence_plate.empty() || all_crimes.empty())continue;
@@ -170,9 +179,11 @@ void load(std::map<std::string, std::list<Crime>>& base, const std::string filen
 				start++;
 				end = all_crimes.find(',', start);
 				std::string place = all_crimes.substr(start, end - start);
+				date_time = stoi(place.substr(place.find("|")+1, std::string::npos));
+				place.erase(place.find("|"), std::string::npos);
 				int id = std::stoi(place);
 				place.erase(0, 1);
-				base[licence_plate].push_back(Crime(id, place));
+				base[licence_plate].push_back(Crime(id, place, date_time));
 			}
 		}
 		fin.close();
@@ -206,14 +217,14 @@ void menu(std::map<std::string, std::list<Crime>>& base, std::string filename)
 		case '1': print(base); break;
 		case '2': search(base, input_plate()); break;
 		case '3': search2(base, input_plate(), input_plate()); break;
-		case '4': //cout << "empty\n"; break;
-		case '5': search3(base, check_crime()); break;
-		case '6': search4(base, input_place());
+		case '4': //cout << "Эта опция еще не добавлена, постараемся включить ее в следующее обновление\n";
 			system("PAUSE");
 			break;
+		case '5': search3(base, check_crime()); break;
+		case '6': search4(base, input_place());			
 		case '7': save(base, filename); break;
 		case '8': load(base, filename); break;
-		case '9': base[input_plate()].push_back(Crime(check_crime(), input_place())); break;
+		case '9': base[input_plate()].push_back(Crime(check_crime(), input_place(), (time(NULL)))); break;
 		}
 
 	} while (key != 27);
@@ -278,4 +289,24 @@ void search4(const std::map<std::string, std::list<Crime>>& base, std::string pl
 		}
 	}
 	system("PAUSE");
+}
+
+std::string currentDateTime(const std::time_t curtime)
+{
+	tm* ptm = nullptr;
+	time_t t = curtime;//std::time(nullptr);
+	ptm = std::localtime(&t);
+	std::string day;
+	std::string mon;
+	std::string year;
+	std::string hours;
+	std::string min;
+	std::string sec;
+	(ptm->tm_mday < 10) ? day = "0" + std::to_string(ptm->tm_wday) : day = std::to_string(ptm->tm_wday);
+	(ptm->tm_mon < 10) ? mon = "0" + std::to_string(ptm->tm_mon) : mon = std::to_string(ptm->tm_mon);
+	(ptm->tm_hour < 10) ? hours = "0" + std::to_string(ptm->tm_hour) : hours = std::to_string(ptm->tm_hour);
+	(ptm->tm_min < 10) ? min = "0" + std::to_string(ptm->tm_min) : min = std::to_string(ptm->tm_min);
+	(ptm->tm_sec < 10) ? sec = "0" + std::to_string(ptm->tm_sec) : sec = std::to_string(ptm->tm_sec);
+	year = std::to_string(1900 + ptm->tm_year);
+	return day + "." + mon + "." + year + " " + hours + ":" + min + ":" + sec;
 }
