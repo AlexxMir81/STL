@@ -51,7 +51,7 @@ std::ostream& operator<<(std::ostream& os, const Crime& obj)
 };
 std::ofstream& operator<<(std::ofstream& ofs, const Crime& obj)
 {
-	ofs << obj.get_id() << obj.get_place() << obj.get_date_time();
+	ofs << obj.get_id() << obj.get_place() << "|" << obj.get_date_time();
 	return ofs;
 }
 
@@ -149,7 +149,7 @@ void save(const map<std::string, std::list<Crime>>& base, std::string filename)
 		fout << it->first << ":";
 		for (std::list<Crime>::const_iterator jt = it->second.begin(); jt != it->second.end(); ++jt)
 		{
-			fout << *jt << "|" << time(NULL) << ",";
+			fout << *jt << ",";
 		}
 		fout.seekp(-1, std::ios::cur); //cur - current (текущий)
 		fout << ";\n";
